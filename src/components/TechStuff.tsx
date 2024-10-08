@@ -4,15 +4,14 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Phone } from './technikaiKutyuk';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { Fetch } from './Fetch';
 
 export function TechStuff()
 {
   const [phones, setPhones] = useState([] as Phone[])
   useEffect(() =>
   {
-    fetch("/technikaiKutyuk.json")
-    .then(response => response.json())
-    .then(data => setPhones(data.phones));
+    Fetch("/technikaiKutyuk.json").then(data => setPhones(data.phones));
   }, [])
   return (
     <>

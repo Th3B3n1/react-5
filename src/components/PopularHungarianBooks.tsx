@@ -5,15 +5,14 @@ import Table from 'react-bootstrap/Table';
 import { Book } from "./magyarKonyvek"
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { Fetch } from "./Fetch";
 
 export function PopularHungarianBooks()
 {
     const [books, setBooks] = useState([] as Book[]);
     useEffect(() =>
     {
-        fetch("/magyarKonyvek.json")
-        .then(response => response.json())
-        .then(data => setBooks(data.books));
+        Fetch("/magyarKonyvek.json").then(data => setBooks(data.books));
     }, [])
     return (
         <>

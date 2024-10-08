@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { Fetch } from "./Fetch";
 
 interface CheapCars
 {
@@ -14,9 +15,7 @@ export function CheapCars()
     const [cars, setCars] = useState([] as CheapCars[])
     useEffect(() =>
     {
-        fetch("/olcsoAutok.json")
-        .then(response => response.json())
-        .then(data => setCars(data.cars));
+        Fetch("/olcsoAutok.json").then(data => setCars(data.cars));
     }, []);
     return (
         <>
